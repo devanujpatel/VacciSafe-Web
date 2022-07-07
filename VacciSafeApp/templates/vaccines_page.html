@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% load socialaccount %}
+{% load static %}
+
+{% block body %}
+
+<div style="width: 60%; display:flex; flex-direction: row;">
+    <a data-bs-toggle="tooltip" title="Home" data-bs-placement="top" href="{% url 'index' %}"
+        style="margin-left: 50px; margin-top:12px; align-content: right;opacity: 0.7;">
+        <img src="data:image/png;base64,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"
+            width="33px" /></a>
+    <h3 style="width: 100%; margin-left: 30px; font-size: 23px; text-align: center;">VacciSafe - {{ fname }} {{ lname }}
+        ({{dob}})</h3>
+    <a data-bs-toggle="tooltip" title="Delete Recipient" data-bs-placement="top"
+        href="{% url 'delete_recipient' rec_id %}"
+        style="margin-right: 70px; margin-top:10px;align-content: right;"><img
+            src="https://media.istockphoto.com/vectors/garbage-bin-sign-vector-id1139466631?k=20&m=1139466631&s=612x612&w=0&h=F3hOMYdQTDn4NFEi94i9StIbDxJ1v7mX79lDxz1cXLk="
+            width="45px" /></a>
+</div>
+<br>
+<div id="err_img" style="display: none;">
+    <img src="https://www.cc.gatech.edu/sites/default/files/styles/main_850x478_/public/images/main/2021/BasicPageImagerobot.jpg?itok=DQ4Mxvnk"
+        alt="Loading" width="100%" />
+</div>
+
+<style>
+    #err_img {
+        padding: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="modal_title"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal_content"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<input type="hidden" value="{{ rec_id }}" id="rec_id">
+<script>
+
+    fetch(`${window.location.origin}/get_vaccines/${document.querySelector("#rec_id").value}`)
+        .then(response => response.json())
+        .then(vaccines => {
+
+            if (vaccines.response === "err_no_matching_query") {
+                console.log("no matching query")
+                document.querySelector("#err_img").style.display = "block"
+            } else {
+                console.log(vaccines.length)
+                vaccines_table = document.createElement('table')
+                vaccines_table.id = "vaccines_table"
+                vaccines_table.className = "table table-hover"
+                vaccines_table.style.width = "60%"
+                vaccines_table.style.textAlign = "center"
+
+                vaccines_table_head = document.createElement('thead')
+                //vaccines_table_head.style.textAlign = "center"
+                //vaccines_table_body.style.display = "table-header-group"
+                vaccines_table_head_row = document.createElement('tr')
+                vaccines_table.appendChild(vaccines_table_head)
+
+                vaccines_table_head_row_vaccine_name = document.createElement('th')
+                vaccines_table_head_row_vaccine_name.scope = "row"
+                vaccines_table_head_row_vaccine_name.innerHTML = "Vaccine Name"
+
+                vaccines_table_head_row_vaccine_taken_at = document.createElement('th')
+                vaccines_table_head_row_vaccine_taken_at.innerHTML = "Taken At"
+                vaccines_table_head_row_vaccine_taken_at.scope = "row"
+
+                vaccines_table_head_row_due_on = document.createElement('th')
+                vaccines_table_head_row_due_on.innerHTML = "Due On"
+                vaccines_table_head_row_due_on.scope = "row"
+                vaccines_table_head_row_due_on.style.minWidth = "120px"
+
+                vaccines_table_head_row.appendChild(vaccines_table_head_row_vaccine_name)
+                vaccines_table_head_row.appendChild(vaccines_table_head_row_vaccine_taken_at)
+                vaccines_table_head_row.appendChild(vaccines_table_head_row_due_on)
+
+                vaccines_table_head.appendChild(vaccines_table_head_row)
+
+                vaccines_table_body = document.createElement('tbody')
+                vaccines_table_body.style.textAlign = "center"
+                vaccines_table.appendChild(vaccines_table_body)
+
+
+                for (let i = 0; i < vaccines.length; i++) {
+                    console.log(vaccines[i])
+
+                    vaccines_table_body_row = document.createElement('tr')
+
+                    vaccines_table_body.appendChild(vaccines_table_body_row)
+
+                    vaccines_table_body_row_name = document.createElement('td')
+                    //vaccines_table_body_row_name.innerHTML = vaccines[i].vaccine_name
+                    vaccines_table_body_row_vaccine_name_btn = document.createElement("button")
+
+                    vaccines_table_body_row_vaccine_name_btn.innerHTML = vaccines[i].vaccine_name
+                    vaccines_table_body_row_vaccine_name_btn.style.background = "none"
+                    vaccines_table_body_row_vaccine_name_btn.style.border = "none"
+                    vaccines_table_body_row_vaccine_name_btn.style.padding = "0"
+                    vaccines_table_body_row_vaccine_name_btn.onclick = () => {
+                        document.querySelector("#modal_title").innerHTML = vaccines[i].vaccine_name
+                        document.querySelector("#modal_content").innerHTML = vaccines[i].details
+                        $("#myModal").modal("show");
+                    }
+                    vaccines_table_body_row_name.append(vaccines_table_body_row_vaccine_name_btn)
+
+                    //vaccines_table_body_row_name.scope = "row"
+                    //vaccines_table_body_row_name.style.textAlign = "center"
+
+                    vaccines_table_body_row_taken_at = document.createElement('td')
+                    vaccines_table_body_row_taken_at.innerHTML = vaccines[i].taken_at
+                    //vaccines_table_body_row_taken_at.scope = "row"
+                    //vaccines_table_body_row_taken_at.style.textAlign = "center"
+
+                    vaccines_table_body_row_due_on = document.createElement('td')
+                    vaccine_status_btn = document.createElement('button')
+                    vaccine_status_btn.style.width = "100px"
+                    vaccine_status_btn.style.color = "black"
+                    vaccine_status_btn.className = "btn"                    
+
+                    if (vaccines[i].btn_state === "disabled") {
+                        vaccine_status_btn.disabled = true;                        
+                    }
+                    vaccine_status_btn.id = `btn_toggle_${vaccines[i].vaccine_id}`
+
+                    if (vaccines[i].vac_taken_date === "None") {
+                        vaccine_status_btn.innerHTML = vaccines[i].reminder_date
+                        vaccine_status_btn.style.backgroundColor = "#F6AE99"
+                        //document.querySelector(`#vaccine_status_btn_${i}`).style.backgroundColor = "#F6AE99"
+                    } else {
+                        vaccine_status_btn.innerHTML = "Taken"
+                        vaccine_status_btn.style.backgroundColor = "#90C8AC"
+                        //document.querySelector(`#vaccine_status_btn_${i}`).style.backgroundColor = "#90C8AC"
+                    }
+                    vaccines_table_body_row_due_on.onclick = () => {
+                        fetch("/toggle_vaccine_status", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                vaccine_fk: vaccines[i].vaccine_id,
+                                recipient_fk: document.querySelector("#rec_id").value,
+                                vac_taken_date: vaccines[i].vac_taken_date
+                            })
+                        })
+                        //vaccine_table = document.querySelector("#vaccines_table")
+                        //document.querySelector("#main_content").removeChild(vaccine_table)
+                        console.log(vaccines[i].vaccine_name)
+                        if (document.querySelector(`#btn_toggle_${vaccines[i].vaccine_id}`).innerHTML === "Taken") {
+                            console.log("setting reminder date")
+                            document.querySelector(`#btn_toggle_${vaccines[i].vaccine_id}`).style.backgroundColor = "#F6AE99"
+                            document.querySelector(`#btn_toggle_${vaccines[i].vaccine_id}`).innerHTML = vaccines[i].reminder_date
+                        } else {
+                            console.log("Setting Taken")
+                            document.querySelector(`#btn_toggle_${vaccines[i].vaccine_id}`).style.backgroundColor = "#90C8AC"
+                            document.querySelector(`#btn_toggle_${vaccines[i].vaccine_id}`).innerHTML = "Taken"
+                        }
+                    }
+                    vaccines_table_body_row_due_on.append(vaccine_status_btn)
+                    //vaccines_table_body_row_due_on.scope = "row"
+                    //vaccines_table_body_row_due_on.style.textAlign = "center"
+
+                    vaccines_table_body_row.appendChild(vaccines_table_body_row_name)
+                    vaccines_table_body_row.appendChild(vaccines_table_body_row_taken_at)
+                    vaccines_table_body_row.appendChild(vaccines_table_body_row_due_on)
+                }
+                document.querySelector("#main_content").append(vaccines_table)
+            }
+        })
+</script>
+<style>
+    th {
+        text-align: center
+    }
+</style>
+{% endblock %}

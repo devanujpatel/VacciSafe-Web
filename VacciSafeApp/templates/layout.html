@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}VacciSafe{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+    <style>
+        .center-main-content {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="log_out">
+        {% if request.user.is_authenticated %}
+        <div><span class="badge bg-secondary" style="border-radius: 5px;">{{ user.email }}</span></div>
+
+        <a href={% url 'log_out' %}>Log out</a>
+        {% endif %}
+    </div>
+    <div class="center-main-content" id="main_content">
+        <!--<h2 style="margin: 5px;">{% block htag %}VacciSafe{% endblock %}</h2> -->
+        {% block body %}
+        {% endblock %}
+    </div>
+    <style>
+        #log_out {
+            position: relative;
+        }
+
+        #log_out a {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+        }
+
+        #log_out div {
+            position: absolute;
+            top: -20px;
+            right: 70px;
+        }
+    </style>
+</body>
+
+</html>

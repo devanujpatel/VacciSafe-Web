@@ -1,0 +1,20 @@
+{% load socialaccount %}
+{% load static %}
+<html>
+
+<head>
+  <title>VacciSafe</title>
+
+  </style>
+</head>
+
+<body>
+  <h1>My Google OAuth Project </h1>
+  {% if user.is_authenticated %}
+    <p>Welcome, You are logged in as {{ user.username }} Count is {{ count }}</p>
+  {% else %}
+    <a href="{% provider_login_url 'google' %}"><img src="{% static '/btn_google_signin_dark_focus_web.png' %}" /> </a> 
+  {% endif %}
+</body>
+
+</html>

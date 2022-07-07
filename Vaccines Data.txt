@@ -1,0 +1,45 @@
+BCG|0|0|0|Bacille Calmette-Guérin (BCG) is a vaccine for Tuberculosis (TB) disease|ALL
+Hep B1|0|0|0|Hepatitis Dose - At birth or as early as possible within 24 hours, 0.5 ml, Intramuscular, Antero lateral side of mid thigh|ALL
+OPV|0|0|0|Polio vaccine, At birth or as early as possible within the first 15 days, 2 drops,	Oral|ALL
+DTwP /DTaP1|0|1|2|A class of combination vaccines against three infectious diseases: diphtheria, pertussis, and tetanus|ALL
+Hib-1|0|1|2|Hib vaccine can prevent Haemophilus influenzae type b disease|ALL
+IPV-1|0|1|2|Inactivated Polio Vaccine|ALL
+Hep B2|0|1|2|Hepatitis B vaccine prevents Hepatitis B|ALL
+PCV 1|0|1|2|Pneumococcal conjugate vaccine is a pneumococcal vaccine and a conjugate vaccine used to protect infants, young children, and adults against disease caused by the bacterium Streptococcus pneumoniae (pneumococcus)|ALL
+Rota-1|0|1|2|Rotavirus vaccine is a vaccine used to protect against rotavirus infections, which are the leading cause of severe diarrhea among young children|ALL
+DTwP /DTaP2|0|2|2|A class of combination vaccines against three infectious diseases: diphtheria, pertussis, and tetanus|ALL
+Hib-2|0|2|2|Hib vaccine can prevent Haemophilus Influenzae type b disease|ALL
+IPV-2|0|2|2|Inactivated Polio Vaccine|ALL
+Hep B3|0|2|2|Hepatitis B vaccine prevents Hepatitis B|ALL
+PCV 2|0|2|2|Pneumococcal conjugate vaccine is a pneumococcal vaccine and a conjugate vaccine used to protect infants, young children, and adults against disease caused by the bacterium Streptococcus pneumoniae (pneumococcus)|ALL
+Rota-2|0|2|2|Rotavirus vaccine is a vaccine used to protect against rotavirus infections, which are the leading cause of severe diarrhea among young children|ALL
+DTwP /DTaP3|0|3|2|A class of combination vaccines against three infectious diseases: Diphtheria, Pertussis (whooping cough), and Tetanus|ALL
+Hib-3|0|3|2|Hib vaccine can prevent Haemophilus Influenzae type b disease|ALL
+IPV-3|0|3|2|Inactivated Polio Vaccine|ALL
+Hep B4|0|3|2|Hepatitis B vaccine prevents Hepatitis B|ALL
+PCV 3|0|3|2|Pneumococcal conjugate vaccine is a pneumococcal vaccine and a conjugate vaccine used to protect infants, young children, and adults against disease caused by the bacterium Streptococcus pneumoniae (pneumococcus)|ALL
+Rota-3|0|3|2|Rotavirus vaccine is a vaccine used to protect against rotavirus infections, which are the leading cause of severe diarrhea among young children|ALL
+Influenza-1|0|6|0|Influenza vaccines, also known as flu jabs or flu shots, are vaccines that protect against infection by influenza viruses|ALL
+Typhoid Conjugate (TCV)|0|6|0|Vaccine that prevents typhoid fever|ALL
+Influenza-2|0|7|0|Influenza vaccines, also known as flu jabs or flu shots, are vaccines that protect against infection by influenza viruses|ALL
+MMR 1|0|9|0|The MMR vaccine is a vaccine against Measles, Mumps, and Rubella (German measles)|ALL
+Hepatitis A-1|1|0|0|Hepatitis A vaccine is a vaccine that prevents Hepatitis A|ALL
+PCV Booster|1|0|0|Pneumococcal conjugate vaccine is a pneumococcal vaccine and a conjugate vaccine used to protect infants, young children, and adults against disease caused by the bacterium Streptococcus pneumoniae (pneumococcus)|ALL
+MMR 2|1|3|0|The MMR vaccine is a vaccine against Measles, Mumps, and Rubella (German measles)|ALL
+Varicella|1|3|0|Varicella vaccine, also known as Chickenpox vaccine, is a vaccine that protects against Chickenpox|ALL
+DTwP /DTaP|1|4|0|A class of combination vaccines against three infectious diseases: Diphtheria, Pertussis (whooping cough), and Tetanus|ALL
+Hib|1|4|0|The Haemophilus influenzae type B vaccine, also known as Hib vaccine, is a vaccine used to prevent Haemophilus influenzae type b (Hib) infection|ALL
+IPV|1|4|0|Inactivated Polio Vaccine|ALL
+Hepatitis A-2|1|6|0|Hepatitis A vaccine is a vaccine that prevents Hepatitis A|ALL
+Varicella 2|1|6|0|Varicella vaccine, also known as Chickenpox vaccine, is a vaccine that protects against Chickenpox|ALL
+Annual Influenza|2|0|0|Annual Influenza Vaccine|ALL
+Annual Influenza|3|0|0|Annual Influenza Vaccine|ALL
+DTwP /DTaP|4|0|0|A class of combination vaccines against three infectious diseases: Diphtheria, Pertussis (whooping cough), and Tetanus|ALL
+IPV|4|0|0|Inactivated Polio Vaccine|ALL
+MMR 3|4|0|0|The MMR vaccine is a vaccine against Measles, Mumps, and Rubella (German measles)|ALL
+Annual Influenza|4|0|0|Annual Influenza Vaccine|ALL
+Annual Influenza|5|0|0|Annual Influenza Vaccine|ALL
+HPV 1 for Girls|9|0|0|Human Papillomavirus (HPV) vaccines are vaccines that prevent infection by certain types of human papillomavirus (HPV)|F
+HPV 2 for Girls|9|9|0|Human Papillomavirus (HPV) vaccines are vaccines that prevent infection by certain types of human papillomavirus (HPV)|F
+Tdap/ Td|10|0|0|Tetanus and adult diphtheria (Td) vaccine is a combination of tetanus and diphtheria with lower concentration of diphtheria antigen (d) as recommended for older children and adults|ALL
+Tdap/ Td|16|0|0|Tetanus and adult diphtheria (Td) vaccine is a combination of tetanus and diphtheria with lower concentration of diphtheria antigen (d) as recommended for older children and adults|ALL

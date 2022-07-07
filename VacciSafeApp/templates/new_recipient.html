@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% load socialaccount %}
+{% load static %}
+{% block htag %}
+Create New Recipient
+{% endblock %}
+{% block body %}
+<h4 style="font-size: 23px;">Create New Recipient</h4>
+<form id="new_rec_form" style="padding:5px">
+    <div class="mb-3" style="background-color: #FFBABA; color:#D8000C" id="err_fname_lname_unique_error">
+    </div>
+    <div class="mb-3">
+        <input id="fname" type="text" class="form-control" name="fname" placeholder="First Name" style="margin: 5px;"
+            </div>
+        <div class="mb-3" style="background-color: #FFBABA; color:#D8000C" id="err_fname">
+        </div>
+        <div class="mb-3">
+            <input type="text" id="lname" class="form-control" name="lname" placeholder="Last Name"
+                style="margin: 5px;">
+        </div>
+        <div class="mb-3" style="background-color: #FFBABA; color:#D8000C" id="err_lname">
+        </div>
+        <div style="  display: flex;flex-direction: row;justify-content: center;align-items: center; margin-top: 7px;">
+            <label for="dateofbirth" style="margin: 5px; width: 60%">Date of Birth: </label>
+            <input id="dob" type="date" name="dateofbirth" id="dateofbirth" style="width: 80%;"
+                class="form-control"><br>
+        </div>
+
+        <div class="mb-3" style="background-color: #FFBABA; color:#D8000C" id="err_dob">
+        </div>
+        <div style="margin: 5px; font-size: 16px;">Gender:</div>
+        <div class="form-check" style="margin: 5px;">
+
+            <input class="form-check-input" type="radio" name="gender" value="Male" id="male">
+            <label class="form-check-label" for="male">
+                Male
+            </label><br>
+            <input class="form-check-input" type="radio" name="gender" value="Female" id="female">
+            <label class="form-check-label" for="female">
+                Female
+            </label><br>
+            <input class="form-check-input" type="radio" name="gender" value="Other" id="other">
+            <label class="form-check-label" for="other">
+                Other
+            </label><br>
+            <div class="mb-3" style="background-color: #FFBABA; color:#D8000C" id="err_gender">
+            </div>
+        </div>
+
+        <a type="submit" class="btn" value="Add Recipient"
+            style="width: 100%; background-color: #937DC2 !important; color: white;" id="new_rec_btn"
+            onclick="event.preventDefault(); return submit_new_rec_form();">Add Recipient</a>
+        <a style="width: 100%; margin-top: 7px; background-color: #937DC2 !important; color: white;"
+            href="{% url 'index' %}" class="btn">Cancel</a>
+</form>
+
+<script>
+    function submit_new_rec_form() {
+        console.log("FORM SUBMITED")
+        fname = document.querySelector("#fname").value.trim()
+        lname = document.querySelector("#lname").value.trim()
+        dob = document.querySelector("#dob").value.trim()
+        err_id = "no_err"
+        try {
+            gender = document.querySelector('input[name="gender"]:checked').value;
+            document.querySelector(`#err_gender`).innerHTML = ""
+        } catch (err) {
+            err_id = "yes_err"
+            document.querySelector(`#err_gender`).innerHTML = "Please provide a gender"
+        }
+
+        if (fname === "") {
+            err_id = "yes_err"
+            document.querySelector(`#err_fname`).innerHTML = "Please provide a First Name"
+        } else {
+            document.querySelector(`#err_fname`).innerHTML = ""
+        }
+        if (lname === "") {
+            err_id = "yes_err"
+            document.querySelector(`#err_lname`).innerHTML = "Please provide a Last Name"
+        } else {
+            document.querySelector(`#err_lname`).innerHTML = ""
+        }
+        if (dob === "") {
+            err_id = "yes_err"
+            document.querySelector(`#err_dob`).innerHTML = "Please provide a Date of Birth"
+        } else {
+            document.querySelector(`#err_dob`).innerHTML = ""
+        }
+        //if (gender === "") {
+        //    err_id = "yes_err"
+        //    document.querySelector(`#err_gender`).innerHTML = "Please provide a gender"
+        //}
+        //else {
+        //    document.querySelector(`#err_gender`).innerHTML = ""
+        //}
+
+        if (err_id === "no_err") {
+            fetch("add_recipient", {
+                method: "POST",
+                body: JSON.stringify({
+                    fname: fname,
+                    lname: lname,
+                    dob: dob,
+                    gender: gender
+                })
+            })
+                .then(
+                    response => response.json()
+                )
+                .then(
+                    result => {
+                        if (result.response === "success") {
+                            location.href = `${window.location.origin}/vaccines_page/${result.rec_id}`
+                        } else if (result.response === "unique_first_last_combo_error") {
+                            document.querySelector(`#err_fname_lname_unique_error`).innerHTML = "This Recipient name is already registered"
+                        }
+                    })
+        } else {
+            return false;
+        }
+
+        //document.querySelector("#new_rec_form").submit();
+    }
+</script>
+{% endblock %}

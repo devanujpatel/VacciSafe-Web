@@ -1,0 +1,26 @@
+{% load socialaccount %}
+<html>
+
+<body onload="setTimeout(function (){document.forms['google_login'].submit()}, 1000);">
+    <div>
+        <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="Loading" width="100%" />
+    </div>
+    <form method="post" name="google_login">
+        {% csrf_token %}
+        <button type="submit" style="display: none;"></button>
+    </form>
+    <style>
+        div {
+            padding: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</body>
+
+</html>

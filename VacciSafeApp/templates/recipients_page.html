@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% load socialaccount %}
+{% load static %}
+
+{% block body %}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="modal_title">About VacciSafe</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal_content">Welcome to VacciSafe. This website helps you keep track of your (or your
+                    children's)
+                    Vaccine schedule. Based on the date of birth provided, VacciSafe will show past vaccines as
+                    'Taken' and the new future ones as 'Not Taken'. You can change the status of a particular
+                    vaccine to 'Taken' or 'Not Taken' and VacciSafe will handle the rest. Going forward VacciSafe
+                    will provide reminder email notifications as the due date approaches.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<h3>VacciSafe</h3>
+<a onclick="$('#myModal').modal('show');" class="btn btn-md"
+    style="background-color: #937DC2; color: white; opacity: 0.8;">About VacciSafe</a><br>
+<form action="{% url 'new_recipient_form_page' %}" id="new_rec_form">
+    <a type="submit" class="btn" value="Add Recipient" style="width: 150px; background-color: #937DC2; color: white;" onclick="document.querySelector('#new_rec_form').submit()">Add Recipient</a>
+</form>
+<br>
+
+<script>
+    function rec_btn_click(rec_id) {
+        console.log(rec_id)
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch(`get_recipients`)
+            .then(response => response.json())
+            .then(recipients => {
+                console.log(recipients)
+                for (let i = 0; i < recipients.length; i++) {
+                    rec_btn = document.createElement('a')
+                    rec_btn.className = "btn"
+                    rec_btn.style.width = "180px"
+                    rec_btn.style.color = "black"
+                    rec_btn.innerHTML = recipients[i].name
+                    rec_btn.style.borderColor = "black"
+                    rec_btn.style.marginTop = "5px"
+                    rec_btn.style.backgroundColor = "white"                    
+                    rec_btn.onclick = (event) => {
+                        console.log(recipients[i].name)
+                        window.location.href = `/vaccines_page/${recipients[i].id}`
+                    }
+                    document.querySelector("#main_content").append(rec_btn)
+                }
+            })
+    });
+</script>
+{% endblock %}
